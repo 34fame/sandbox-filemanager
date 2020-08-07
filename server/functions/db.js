@@ -1,5 +1,4 @@
 const fs = require("./api/firebase/firestore")
-const uid = require("tiny-uid")
 
 exports.get = async (props) => {
    const { collection, collectionId, subcollection, subcollectionId, where, orderBy } = props

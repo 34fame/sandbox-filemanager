@@ -16,9 +16,9 @@ exports.dbGet = props => {
       let queryRef = null
 
       if (collectionGroup) {
-         queryRef = init.db.collectionGroup(collectionGroup)
+         queryRef = init.fs.collectionGroup(collectionGroup)
       } else {
-         queryRef = init.db.collection(collection)
+         queryRef = init.fs.collection(collection)
 
          if (collectionId) {
             queryType = "one"
@@ -100,7 +100,7 @@ exports.dbAdd = props => {
          id: subcollectionId ? subcollectionId : collectionId,
       }
 
-      let dbRef = init.db.collection(collection)
+      let dbRef = init.fs.collection(collection)
       dbRef = dbRef.doc(collectionId)
 
       if (subcollection) {
@@ -139,7 +139,7 @@ exports.dbUpdate = props => {
       let payload = {
          ...updates,
       }
-      let dbRef = init.db.collection(collection)
+      let dbRef = init.fs.collection(collection)
       dbRef = dbRef.doc(collectionId)
 
       if (subcollection) {
@@ -169,7 +169,7 @@ exports.dbDelete = props => {
    return new Promise((resolve, reject) => {
       const { collection, collectionId, subcollection, subcollectionId } = props
 
-      let dbRef = init.db.collection(collection)
+      let dbRef = init.fs.collection(collection)
       dbRef = dbRef.doc(collectionId)
       if (subcollection) {
          dbRef = dbRef.collection(subcollection)
